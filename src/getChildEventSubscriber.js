@@ -34,7 +34,9 @@ export default function getChildEventSubscriber(addListener, key) {
     const subscribers = getChildSubscribers(type);
     subscribers &&
       subscribers.forEach(subs => {
-        subs(payloadWithType);
+        if (subs) {
+          subs(payloadWithType);
+        }
       });
   };
 
